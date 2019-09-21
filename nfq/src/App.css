@@ -101,7 +101,7 @@ a[data-toggle="collapse"] {
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 250px);
+    width: 100%;
     padding: 40px;
     min-height: 100vh;
     transition: all 0.3s;
@@ -129,11 +129,15 @@ a[data-toggle="collapse"] {
     #content {
         width: 100%;
     }
-    #content.active {
-        width: calc(100% - 250px);
-    }
     #sidebarCollapse span {
         display: none;
+    }
+    .container-fluid h1 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+    .navToggleBtn {
+      margin-bottom: 10px;
     }
 }
 

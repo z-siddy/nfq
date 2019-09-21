@@ -11,6 +11,7 @@ const NavbarHandler = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
+          <h1 style={{color: "#FF6B00"}}>{props.pageName}</h1>
           <button
             type="button"
             id="sidebarCollapse"
@@ -19,7 +20,6 @@ const NavbarHandler = (props) => {
           >
             <i className="material-icons">menu</i>
           </button>
-          <h1 style={{color: "#FF6B00"}}>{props.pageName}</h1>
         </div>
       </nav>
     </div>);

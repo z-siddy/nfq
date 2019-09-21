@@ -1,0 +1,17 @@
+[
+    {
+      "id" : 3,
+      "name" : "Jevgenij",
+      "clients" : []
+    },
+    {
+      "id" : 1,
+      "name" : "Romas",
+      "clients" : []
+    },
+    {
+      "id" : 2,
+      "name" : "Drąsius",
+      "clients" : []
+    }
+]

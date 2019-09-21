@@ -1,12 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../img/logo.png';
+import $ from 'jquery';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { };
+  }
+
+  handleClick(){
+    $('#sidebar, #content').toggleClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
   }
 
   render() {
@@ -17,13 +24,13 @@ class Navbar extends React.Component {
           </div>
           <ul className="list-unstyled components">
             <li>
-              <Link to="/">Švieslentė</Link>
+              <Link to="/" onClick={this.handleClick}>Švieslentė</Link>
             </li>
             <li>
-              <Link to="/specialist">Specialistams</Link>
+              <Link to="/specialist" onClick={this.handleClick}>Specialistams</Link>
             </li>
             <li>
-              <Link to="/admin">Administracijai</Link>
+              <Link to="/admin" onClick={this.handleClick}>Administracijai</Link>
             </li>
           </ul>
         </nav>

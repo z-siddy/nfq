@@ -5,7 +5,7 @@ import './Board.css';
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = { specialists: props.specialists };
   }
 
   render() {
@@ -13,6 +13,7 @@ class Board extends React.Component {
       <div>
         <div id="content">
           <NavbarHandler pageName="Švieslentė"/>
+          {this.props.items}
         </div>
       </div>
     );
