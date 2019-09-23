@@ -3,49 +3,57 @@
       "firstname" : "John",
       "lastname" : "Wick",
       "specialist" : "1",
-      "ticket" : 69
+      "ticket" : 69,
+      "attended" : false
     },
     {
       "firstname" : "Andrey",
       "lastname" : "Stanislaw",
       "specialist" : "1",
-      "ticket" : 452
+      "ticket" : 452,
+      "attended" : false
     },
     {
       "firstname" : "Raj",
       "lastname" : "Hudi",
       "specialist" : "2",
-      "ticket" : 1
+      "ticket" : 1,
+      "attended" : false
     },
     {
       "firstname" : "Sam",
       "lastname" : "Witty",
       "specialist" : "1",
-      "ticket" : 131
+      "ticket" : 131,
+      "attended" : false
     },
     {
       "firstname" : "Mary",
       "lastname" : "Popings",
       "specialist" : "2",
-      "ticket" : 842
+      "ticket" : 842,
+      "attended" : false
     },
     {
       "firstname" : "Ham",
       "lastname" : "Santwitch",
       "specialist" : "3",
-      "ticket" : 2
+      "ticket" : 2,
+      "attended" : false
     },
     {
       "firstname" : "Cooper",
       "lastname" : "Trousers",
       "specialist" : "2",
-      "ticket" : 999
+      "ticket" : 999,
+      "attended" : false
     },
     {
       "firstname" : "Kanye",
       "lastname" : "East",
       "specialist" : "3",
-      "ticket" : 13
+      "ticket" : 13,
+      "attended" : false
     }
     
   ]

@@ -28,6 +28,8 @@ class App extends React.Component {
       .then((res) => {
         const specialists = res.data;
         this.setState({ specialists });
+      },(error) => {
+        console.log("Nepavyko nuskaityti specialistų duomenų");
       });
 
     axios.get(`./clients.json`)
@@ -50,6 +52,8 @@ class App extends React.Component {
           specialists
         });
 
+      },(error) => {
+        console.log("Nepavyko nuskaityti lankytojų duomenų");
       });
   }
 
@@ -65,7 +69,8 @@ class App extends React.Component {
       firstname: data.firstname,
       lastname: data.lastname,
       specialist: data.selectedSpecialist,
-      ticket: data.ticket
+      ticket: data.ticket,
+      attended: false
     };
     let idx;
     const temp = specialists.map((item,index) => 
@@ -74,7 +79,7 @@ class App extends React.Component {
     specialists[idx] = update(specialists[idx], { clients: { $push: [newClient] } });
     this.setState({ specialists, currentTicket: data.ticket });
     ls.set('data', this.state);
-    console.log(specialists);
+    alert('Užregistruota sėkmingai!');
   }
 
   removeThis = ticket => {
@@ -87,21 +92,29 @@ class App extends React.Component {
     );
     let t1 = idx[0].index1;
     let t2 = idx[0].index2;
-    specialists[t1] = update(specialists[t1], { clients: { $splice: [[t2,1]] } });
+    const attended = { attended: true };
+    specialists[t1] = update(specialists[t1], { clients: { [t2]: {$merge: attended} } });
     this.setState({ specialists });
     ls.set('data', this.state);
   };
 
   render() {
     const items = this.state.specialists.map((item, index) =>
-      item.clients.length > 0 ? <SpecialistClients { ...item } key={index} /> : null
+        item.clients.length > 0 ? (
+          <SpecialistClients { ...item } key={index} />
+        ) : (
+          null
+        )
     );
+
+    let count = this.state.specialists.length < 1 ? <h1>Nepavyko nuskaityti lankytojų duomenų</h1> : null;
 
     return (
       <div className="App">
         <BrowserRouter>
           <Navbar/>
-          <Route exact path="/" component={ () => <Board items={items} /> } />
+          {count}
+          <Route exact path="/" component={ () => <Board items={items.length > 0 ? items : count} /> } />
           <Route path="/specialist" component={ () => <Specialist state={this.state.specialists} remove={this.removeThis} /> }/>
           <Route path="/admin" component={
             () => <Admin currentTicket={this.state.currentTicket} state={this.state.specialists} saveToLS={this.saveStateToLS} add={this.addClient} />

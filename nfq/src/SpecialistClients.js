@@ -2,6 +2,8 @@ import React from 'react';
 import Client from './Client';
 
 const SpecialistClients = (props) => {
+  let clients = props.clients.filter((main) => !main.attended);
+  const aquaBg = {background: 'aquamarine'};
   return (
     <div className="row">
       <div className="col-12">
@@ -9,8 +11,9 @@ const SpecialistClients = (props) => {
       </div>
       <div className="col-12">
         <ul className="list-group">
-          { props.clients.map((client,index) => 
-              <Client { ...client } key={index} />
+          { 
+            clients.slice(0,2).map((client,index) => 
+              !client.attended ? <Client { ...client } key={index} bg={ index==0 ? aquaBg : null } /> : null
             )
           }
         </ul>

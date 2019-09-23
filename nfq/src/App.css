@@ -29,7 +29,7 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -109,6 +109,8 @@ a[data-toggle="collapse"] {
     top: 0;
     right: 0;
     background: #FF6B00;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 
 #content.active {

@@ -10,7 +10,8 @@ class Admin extends React.Component {
       selectedSpecialist: null,
       firstname: null,
       lastname: null,
-      ticket: props.currentTicket + 1
+      ticket: props.currentTicket + 1,
+      attended: false
     };
   }
 
